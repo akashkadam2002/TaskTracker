@@ -6,12 +6,12 @@ import Input from './utils/Input';
 import Loader from './utils/Loader';
 
 const SignupForm = () => {
-
   const [formErrors, setFormErrors] = useState({});
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    password: ""
+    password: "",
+    country: ""  // Add country field to form data
   });
   const [fetchData, { loading }] = useFetch();
   const navigate = useNavigate();
@@ -35,7 +35,6 @@ const SignupForm = () => {
     fetchData(config).then(() => {
       navigate("/login");
     });
-
   }
 
   const fieldError = (field) => (
@@ -53,22 +52,33 @@ const SignupForm = () => {
         ) : (
           <>
             <h2 className='text-center mb-4'>Welcome user, please signup here</h2>
+            
+            {/* Name Field */}
             <div className="mb-4">
               <label htmlFor="name" className="after:content-['*'] after:ml-0.5 after:text-red-500">Name</label>
               <Input type="text" name="name" id="name" value={formData.name} placeholder="Your name" onChange={handleChange} />
               {fieldError("name")}
             </div>
 
+            {/* Email Field */}
             <div className="mb-4">
               <label htmlFor="email" className="after:content-['*'] after:ml-0.5 after:text-red-500">Email</label>
               <Input type="text" name="email" id="email" value={formData.email} placeholder="youremail@domain.com" onChange={handleChange} />
               {fieldError("email")}
             </div>
 
+            {/* Password Field */}
             <div className="mb-4">
               <label htmlFor="password" className="after:content-['*'] after:ml-0.5 after:text-red-500">Password</label>
               <Input type="password" name="password" id="password" value={formData.password} placeholder="Your password.." onChange={handleChange} />
               {fieldError("password")}
+            </div>
+
+            {/* Country Field (User can type the country) */}
+            <div className="mb-4">
+              <label htmlFor="country" className="after:content-['*'] after:ml-0.5 after:text-red-500">Country</label>
+              <Input type="text" name="country" id="country" value={formData.country} placeholder="Enter your country" onChange={handleChange} />
+              {fieldError("country")}
             </div>
 
             <button className='bg-primary text-white px-4 py-2 font-medium hover:bg-primary-dark' onClick={handleSubmit}>Submit</button>
@@ -78,7 +88,6 @@ const SignupForm = () => {
             </div>
           </>
         )}
-
       </form>
     </>
   )

@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../components/Navbar';
 
+
 const MainLayout = ({ children }) => {
   return (
     <>
@@ -13,3 +14,4 @@ const MainLayout = ({ children }) => {
 }
 
 export default MainLayout;
+

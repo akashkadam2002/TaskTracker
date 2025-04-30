@@ -9,6 +9,7 @@ const initialState = {
   errorMsg: "",
 }
 
+
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN_REQUEST:
@@ -27,3 +28,4 @@ const authReducer = (state = initialState, action) => {
 }
 
 export default authReducer;
+

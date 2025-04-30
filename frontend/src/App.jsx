@@ -8,8 +8,8 @@ import Signup from "./pages/Signup";
 import { saveProfile } from "./redux/actions/authActions";
 import NotFound from "./pages/NotFound";
 
-function App() {
 
+function App() {
   const authState = useSelector(state => state.authReducer);
   const dispatch = useDispatch();
 
@@ -18,6 +18,7 @@ function App() {
     if (!token) return;
     dispatch(saveProfile(token));
   }, [authState.isLoggedIn, dispatch]);
+
 
 
   return (
@@ -37,3 +38,4 @@ function App() {
 }
 
 export default App;
+

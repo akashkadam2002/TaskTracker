@@ -24,8 +24,6 @@ export const postLoginData = (email, password) => async (dispatch) => {
   }
 }
 
-
-
 export const saveProfile = (token) => async (dispatch) => {
   try {
     const { data } = await api.get('/profile', {
@@ -37,7 +35,6 @@ export const saveProfile = (token) => async (dispatch) => {
     });
   }
   catch (error) {
-    // console.log(error);
   }
 }
 
@@ -47,4 +44,5 @@ export const logout = () => (dispatch) => {
   localStorage.removeItem('token');
   dispatch({ type: LOGOUT });
   document.location.href = '/';
+  
 }

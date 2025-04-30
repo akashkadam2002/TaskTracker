@@ -11,6 +11,7 @@ const Login = () => {
     document.title = "Login";
   }, []);
 
+  
   return (
     <>
       <MainLayout>
@@ -21,3 +22,4 @@ const Login = () => {
 }
 
 export default Login
+

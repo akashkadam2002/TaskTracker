@@ -68,4 +68,6 @@ const validateManyFields = (group, list) => {
   }
   return errors;
 }
+
+
 export default validateManyFields;

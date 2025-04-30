@@ -11,6 +11,7 @@ const useFetch = () => {
     errorMsg: "",
   });
 
+
   const fetchData = useCallback(async (config, otherOptions) => {
     const { showSuccessToast = true, showErrorToast = true } = otherOptions || {};
     setState(state => ({ ...state, loading: true }));
@@ -45,3 +46,4 @@ const useFetch = () => {
 }
 
 export default useFetch
+

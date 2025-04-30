@@ -35,6 +35,7 @@ const LoginForm = ({ redirectUrl }) => {
     });
   }
 
+
   const handleSubmit = e => {
     e.preventDefault();
     const errors = validateManyFields("login", formData);
@@ -47,7 +48,6 @@ const LoginForm = ({ redirectUrl }) => {
   }
 
 
-
   const fieldError = (field) => (
     <p className={`mt-1 text-pink-600 text-sm ${formErrors[field] ? "block" : "hidden"}`}>
       <i className='mr-2 fa-solid fa-circle-exclamation'></i>
@@ -55,6 +55,7 @@ const LoginForm = ({ redirectUrl }) => {
     </p>
   )
 
+  
   return (
     <>
       <form className='m-auto my-16 max-w-[500px] bg-white p-8 border-2 shadow-md rounded-md'>

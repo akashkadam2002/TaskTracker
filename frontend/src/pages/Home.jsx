@@ -13,8 +13,6 @@ const Home = () => {
     document.title = authState.isLoggedIn ? `${authState.user.name}'s tasks` : "Task Manager";
   }, [authState]);
 
-
-
   return (
     <>
       <MainLayout>
@@ -38,3 +36,4 @@ const Home = () => {
 }
 
 export default Home
+

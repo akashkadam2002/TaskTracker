@@ -16,6 +16,11 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please enter your password"],
   },
+  country: {
+    type: String,
+    required: [true, "Please enter your country"],
+    trim: true
+  },
   joiningTime: {
     type: Date,
     default: Date.now
@@ -23,7 +28,6 @@ const userSchema = new mongoose.Schema({
 }, {
   timestamps: true
 });
-
 
 const User = mongoose.model("User", userSchema);
 module.exports = User;

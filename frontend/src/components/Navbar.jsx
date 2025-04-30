@@ -16,6 +16,8 @@ const Navbar = () => {
     dispatch(logout());
   }
 
+
+
   return (
     <>
       <header className='flex justify-between sticky top-0 p-4 bg-white shadow-sm items-center'>
@@ -37,7 +39,6 @@ const Navbar = () => {
         <span className='md:hidden cursor-pointer' onClick={toggleNavbar}><i className="fa-solid fa-bars"></i></span>
 
 
-        {/* Navbar displayed as sidebar on smaller screens */}
         <div className={`absolute md:hidden right-0 top-0 bottom-0 transition ${(isNavbarOpen === true) ? 'translate-x-0' : 'translate-x-full'} bg-gray-100 shadow-md w-screen sm:w-9/12 h-screen`}>
           <div className='flex'>
             <span className='m-4 ml-auto cursor-pointer' onClick={toggleNavbar}><i className="fa-solid fa-xmark"></i></span>

@@ -5,8 +5,7 @@ const Portal = ({ children }) => {
   return ReactDom.createPortal(children, document.body);
 }
 
-// @param space: it is the dist between the tip and the element
-// @param children: It is expected to have only 1 child
+
 const Tooltip = ({ children, text, position = "bottom", space = 5 }) => {
 
   if (!React.isValidElement(children)) {
@@ -79,3 +78,4 @@ const Tooltip = ({ children, text, position = "bottom", space = 5 }) => {
 }
 
 export default Tooltip
+

@@ -6,17 +6,16 @@ const { validateEmail } = require("../utils/validation");
 
 exports.signup = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
-    if (!name || !email || !password) {
+    const { name, email, password, country } = req.body; // Destructure the 'country' field
+    if (!name || !email || !password || !country) {  // Check if 'country' is provided
       return res.status(400).json({ msg: "Please fill all the fields" });
     }
-    if (typeof name !== "string" || typeof email !== "string" || typeof password !== "string") {
+    if (typeof name !== "string" || typeof email !== "string" || typeof password !== "string" || typeof country !== "string") {
       return res.status(400).json({ msg: "Please send string values only" });
     }
 
-
     if (password.length < 4) {
-      return res.status(400).json({ msg: "Password length must be atleast 4 characters" });
+      return res.status(400).json({ msg: "Password length must be at least 4 characters" });
     }
 
     if (!validateEmail(email)) {
@@ -29,7 +28,7 @@ exports.signup = async (req, res) => {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    await User.create({ name, email, password: hashedPassword });
+    await User.create({ name, email, password: hashedPassword, country }); // Save 'country' to the User model
     res.status(200).json({ msg: "Congratulations!! Account has been created for you.." });
   }
   catch (err) {

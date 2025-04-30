@@ -2,7 +2,6 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 const { ACCESS_TOKEN_SECRET } = process.env;
 
-
 exports.verifyAccessToken = async (req, res, next) => {
 
   const token = req.header("Authorization");
@@ -29,3 +28,4 @@ exports.verifyAccessToken = async (req, res, next) => {
     return res.status(500).json({ status: false, msg: "Internal Server Error" });
   }
 }
+
